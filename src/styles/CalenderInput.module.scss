@@ -1,0 +1,79 @@
+@import "./variables";
+@import "./mixins";
+
+.calendarInput {
+  width: 300px;
+  user-select: none;
+  margin: $desk-base 0;
+  position: relative;
+
+  .calendarCustomInput {
+    width: 100%;
+    height: 35px;
+    @include main-border($width: 2px);
+    @include flex-center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 0 $desk-sm;
+    margin-top: $desk-sm;
+    height: 35px;
+    color: $main-black;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+    background-color: transparent;
+
+    &:hover {
+      border-color: $pri-green;
+    }
+  }
+
+  p {
+    font-size: $base-font;
+    font-weight: 600;
+    color: $main-black-400;
+    text-transform: capitalize;
+
+    span {
+      color: $pri-green !important;
+      padding-left: $desk-sm;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+  }
+
+  &:hover {
+    border-color: $pri-green;
+  }
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $desk-xsm $desk-sm !important;
+
+  h6 {
+    font-size: $xlg-font !important;
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+}
+
+@include tablet {
+  .calendarInput {
+    width: 100%;
+  }
+  .calendarCustomInput {
+    height: 43px !important;
+  }
+}
+
+.inputError {
+  font-size: $sm-font !important;
+  padding-top: $desk-xsm;
+  font-weight: 600 !important;
+  text-transform: lowercase !important;
+  color: $main-red !important;
+}

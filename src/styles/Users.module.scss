@@ -1,0 +1,283 @@
+@import "./variables";
+@import "./mixins";
+
+.userList {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: $card-shadow;
+  border-radius: 5px;
+  padding: $desk-base;
+  margin-top: $desk-lg;
+}
+
+.singleUser {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-column-gap: $desk-base;
+  grid-row-gap: $desk-base;
+  padding: $desk-base 0;
+  align-items: center;
+  font-size: $base-font;
+  font-weight: 600;
+  color: $main-black-600;
+  @include main-border(
+    $side: "bottom",
+    $width: 1.5px,
+    $style: dashed,
+    $color: $sec-green
+  );
+
+  p {
+    padding: $desk-sm 0;
+
+    span {
+      color: $main-gold;
+    }
+  }
+}
+
+.actionPart {
+  @include flex-center;
+  justify-content: space-evenly;
+}
+
+.actionIcon {
+  cursor: pointer;
+
+  &:nth-child(1) {
+    color: $pri-green;
+  }
+
+  &:nth-child(2) {
+    color: $main-red;
+  }
+}
+
+.btnContainer {
+  width: 100%;
+  height: 35px;
+  margin: $desk-lg 0;
+  display: flex;
+}
+
+.secBtnContainer {
+  margin: $desk-lg 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-column-gap: $desk-lg;
+  grid-row-gap: $desk-base;
+}
+
+.smStoreCard {
+  background-color: #fff;
+  box-shadow: $card-shadow;
+  border-radius: 3px;
+  padding: $desk-sm;
+  @include flex-just-center;
+  cursor: pointer;
+
+  p {
+    font-size: $base-font;
+    color: $main-black-600;
+    font-weight: 600;
+  }
+}
+
+.activeCard {
+  background-color: $sec-green-400;
+}
+
+.userRole {
+  height: 100%;
+  padding: 0 $desk-xsm;
+  @include main-border($width: 2px, $style: solid);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--font-roboto);
+  font-size: $base-font;
+  text-transform: capitalize;
+
+  &:hover {
+    border-color: $sec-green;
+  }
+}
+
+.secBtn {
+  height: 35px;
+}
+
+.formInput {
+  height: 35px;
+  padding: 0 $desk-xsm;
+  @include main-border($width: 2px, $style: solid);
+  border-radius: 5px;
+}
+
+.textarea {
+  padding: $desk-sm;
+  height: 100px !important;
+}
+
+.addOrEditBtn {
+  height: 35px;
+  padding: 0 $desk-base;
+  background-color: $main-black-40;
+  border-radius: 3px;
+  @include main-border($width: 2px, $style: solid);
+  cursor: pointer;
+
+  &:hover {
+    border-color: $sec-green;
+  }
+
+  p {
+    font-weight: 600;
+    color: $main-black;
+  }
+}
+
+.search {
+  flex: 1;
+  height: 100%;
+  margin-left: $desk-base;
+  @include main-border($width: 2px, $style: solid);
+  border-radius: 5px;
+  display: flex;
+
+  input {
+    height: 100%;
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: $base-font;
+    font-family: var(--font-nunito);
+    font-weight: 600;
+    color: $main-black-600;
+    letter-spacing: 0.06rem;
+    padding: 0 $desk-sm;
+  }
+
+  button {
+    height: 100%;
+    padding: 0 $desk-base;
+    border-radius: 0;
+    border-color: transparent;
+    background-color: $main-black-40;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.totalResult {
+  font-size: $sm-font;
+  color: $sec-green-700;
+  margin: $desk-sm 0;
+
+  span {
+    color: $main-red;
+    font-weight: 700;
+  }
+}
+
+.imgContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: $desk-base 0;
+  @include main-border($width: 2px);
+  border-color: $pri-green;
+}
+
+.featuredImgContainer {
+  border-radius: 5px;
+  width: 300px;
+  height: 157px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: $card-shadow;
+  margin: $desk-base 0;
+}
+
+.details {
+  list-style: none;
+  padding-bottom: $desk-base;
+
+  li {
+    @include flex-center;
+    margin: $desk-base 0;
+
+    h6 {
+      font-size: $base-font !important;
+      color: $pri-green;
+      margin-right: $desk-base;
+    }
+    P {
+      font-size: $lg-font !important;
+    }
+  }
+}
+
+.ownerAlert {
+  background-color: $main-red;
+  @include flex-just-center;
+  font-size: $lg-font !important;
+  @include main-border($color: $main-black, $width: 2px);
+
+  h6 {
+    padding: $desk-sm;
+    color: #fff !important;
+  }
+}
+
+.branchDetails {
+  li {
+    display: block;
+    background-color: $sec-green-400;
+    padding: $desk-xsm $desk-base;
+    border-radius: 5px;
+
+    div {
+      @include flex-center;
+      margin: $desk-base 0;
+    }
+  }
+}
+
+.extraPadding {
+  padding-bottom: $desk-base !important;
+}
+
+.serverMsg {
+  text-align: center;
+  font-size: $sm-font !important;
+  padding: $desk-base;
+  font-weight: 600 !important;
+  color: $main-red !important;
+}
+
+@include tablet {
+  .singleUser {
+    p {
+      text-align: center;
+    }
+  }
+
+  .btnContainer {
+    flex-direction: column;
+    height: 100px;
+  }
+
+  .search,
+  .userRole {
+    height: 42%;
+    margin: $desk-xsm 0;
+  }
+
+  .secBtn,
+  .addOrEditBtn,
+  .formInput {
+    height: 40px;
+  }
+}

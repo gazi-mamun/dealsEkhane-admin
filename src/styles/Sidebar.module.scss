@@ -1,0 +1,152 @@
+@import "./variables";
+@import "./mixins";
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.closeBtn {
+  text-align: end;
+  display: none;
+}
+
+.closeIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: $desk-base;
+  margin-top: $desk-base;
+  color: #fff;
+  cursor: pointer;
+}
+
+.top {
+  flex: 1;
+  overflow-y: scroll;
+  padding: $desk-base;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+.bottom {
+  padding: $desk-base;
+  background-color: $sec-green;
+
+  p {
+    font-weight: 600;
+    margin-left: $desk-sm;
+    font-size: $base-font;
+
+    span {
+      font-size: $sm-font;
+      color: $main-red;
+    }
+  }
+
+  ul {
+    padding: $desk-sm $desk-base !important;
+    li {
+      color: $pri-green !important;
+      margin: $desk-xsm 0 !important;
+
+      &:hover {
+        color: $sec-green-700 !important;
+      }
+    }
+  }
+}
+
+.bottomTop {
+  display: flex;
+  align-items: flex-end;
+}
+
+.logo {
+  position: relative;
+  cursor: pointer;
+  padding: $desk-base;
+}
+
+.sideNav {
+  padding: $desk-base 0;
+  list-style: none;
+  padding-left: $desk-sm;
+
+  p {
+    font-size: $base-font;
+    padding-left: $desk-sm;
+    padding-top: $desk-xsm;
+  }
+
+  li {
+    @include flex-center;
+    color: $sec-green;
+    margin: $desk-sm 0;
+    padding: $desk-sm 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $main-black-40;
+    }
+  }
+}
+
+.activeLink {
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.notiLight {
+  color: $main-red !important;
+  animation: color-animation 2s linear infinite;
+}
+
+@keyframes color-animation {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include tablet {
+  .closeBtn {
+    display: block;
+  }
+  .top {
+    padding-top: 0;
+    &::-webkit-scrollbar-track {
+      border-radius: 2px;
+      opacity: 0.6;
+      margin-top: $desk-lg;
+      box-shadow: inset 0 0 5px grey;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background: $sec-green;
+    }
+  }
+  .bottom {
+    padding-bottom: 56px;
+  }
+}
+
+@include mobile {
+  .closeIcon {
+    margin-right: $desk-sm;
+  }
+}

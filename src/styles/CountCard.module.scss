@@ -1,0 +1,32 @@
+@import "./variables";
+@import "./mixins";
+
+.countCard {
+  background-color: #fff;
+  height: 140px;
+  box-shadow: $card-shadow;
+  border-radius: 5px;
+  padding: $desk-base;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h2 {
+    color: $main-black;
+  }
+}
+
+.cardBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  color: $pri-green;
+
+  p {
+    font-size: $base-font;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: var(--font-roboto);
+    font-weight: 600;
+  }
+}

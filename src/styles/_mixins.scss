@@ -1,0 +1,108 @@
+@import "./variables";
+
+@mixin para($classname, $l_height) {
+  #{classname} {
+    font-family: var(--font-nunito);
+    color: $main-black-600;
+    font-weight: 600;
+    font-size: $lg-font;
+    line-height: $l_height;
+    letter-spacing: 5%;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-just-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin text-overflow($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin main-border(
+  $side: "",
+  $width: 1px,
+  $style: solid,
+  $color: $main-black-40
+) {
+  @if $side != "" {
+    border-#{$side}: $width $style $color;
+  } @else {
+    border: $width $style $color;
+  }
+}
+
+@mixin main-padding($className) {
+  #{$className} {
+    padding: 0 $desk-div;
+  }
+
+  @include tablet {
+    #{$className} {
+      padding: 0 $desk-base;
+    }
+  }
+
+  @include mobile {
+    #{$className} {
+      padding: 0;
+    }
+  }
+}
+
+@mixin skAnimation {
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(#fff, 0) 0,
+      rgba(#fff, 0.15) 20%,
+      rgba(#fff, 0.3) 60%,
+      rgba(#fff, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: "";
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+@mixin smMobile {
+  @media (max-width: 380px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}

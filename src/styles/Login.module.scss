@@ -1,0 +1,75 @@
+@import "./variables";
+@import "./mixins";
+
+.login {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  @include flex-just-center;
+}
+
+.loginForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h2 {
+    color: $pri-green;
+  }
+}
+
+.error {
+  color: $main-red;
+  font-size: $sm-font;
+  text-align: center;
+  margin: $desk-base 0;
+}
+
+.inputs {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: $desk-div 0;
+
+  p {
+    font-weight: 600;
+    font-size: $base-font;
+  }
+
+  input {
+    height: 40px;
+    margin: $desk-sm 0;
+    padding: $desk-xsm;
+    @include main-border($width: 2px, $color: $sec-green);
+    border-radius: 3px;
+    outline: none;
+  }
+
+  button {
+    height: 40px;
+    margin-top: $desk-base;
+    border: none;
+    background-color: $pri-green;
+    color: #fff;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .inputs {
+    width: 300px;
+  }
+}
+
+@media (max-width: 310px) {
+  .inputs {
+    width: 200px;
+  }
+}

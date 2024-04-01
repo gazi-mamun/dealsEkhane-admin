@@ -1,0 +1,78 @@
+@import "./variables";
+@import "./mixins";
+
+.layout {
+  height: 100vh;
+  overflow: hidden;
+  @include flex-center;
+}
+
+.sidebarContainer {
+  width: 280px;
+  height: 100%;
+  background-color: $pri-green;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 30;
+}
+
+.detailsContainer {
+  height: 100%;
+  overflow-y: scroll;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.haveNoti {
+  width: 100%;
+  min-height: 35px;
+  background-color: $main-red;
+  padding: $desk-xsm $desk-base;
+  color: $sec-green;
+  @include flex-center;
+  justify-content: space-between;
+  font-family: var(--font-roboto);
+  font-weight: 600;
+  font-size: $base-font;
+}
+
+.openBtn {
+  width: 30px;
+  height: 30px;
+  margin-left: $desk-base;
+  margin-top: $desk-base;
+  padding: $desk-xsm;
+  color: $pri-green;
+  display: none;
+}
+
+.closeIcon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.detailsMain {
+  padding: $desk-lg;
+}
+
+@include tablet {
+  .openBtn {
+    display: block;
+  }
+
+  .detailsMain {
+    padding: $desk-base;
+  }
+}
+
+@include mobile {
+  .openBtn {
+    margin-left: $desk-sm;
+  }
+
+  .detailsMain {
+    padding: $desk-sm;
+  }
+}

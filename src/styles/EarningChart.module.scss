@@ -1,0 +1,28 @@
+@import "./variables";
+@import "./mixins";
+
+.earningChartContainer {
+  max-width: 700px;
+  background-color: #fff;
+  box-shadow: $card-shadow;
+  border-radius: 5px;
+  margin: $desk-lg 0;
+  padding: $desk-base;
+  font-family: var(--font-roboto) !important;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+.areaChart {
+  margin: $desk-lg 0;
+  color: $main-black-600;
+}
+
+@include tablet {
+  .earningChartContainer {
+    max-width: 100%;
+  }
+}

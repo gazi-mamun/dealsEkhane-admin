@@ -1,0 +1,122 @@
+@import "./variables";
+@import "./mixins";
+
+.mainModal {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  @include flex-just-center;
+}
+
+.modalCenter {
+  width: 70%;
+  height: 90%;
+  background-color: $main-black-10;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.top {
+  max-height: 15%;
+  @include flex-center;
+  justify-content: space-between;
+  padding: $desk-base;
+  @include main-border($side: "bottom");
+
+  h6 {
+    text-transform: capitalize;
+  }
+}
+
+.closeIcon {
+  width: 35px;
+  height: 35px;
+  padding: $desk-xsm;
+  border-radius: 50%;
+  color: $main-black;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $sec-green-50;
+  }
+}
+
+.bottom {
+  padding: $desk-base;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 85%;
+}
+
+.breadCrumbs {
+  list-style: none;
+  padding: $desk-sm 0;
+  display: flex;
+
+  li {
+    font-size: $sm-font;
+    cursor: pointer;
+    margin-right: $desk-sm;
+  }
+}
+
+.confirmForm {
+  padding: $desk-lg 0;
+  h6 {
+    color: $pri-green;
+    margin-bottom: $desk-div;
+
+    span {
+      color: $main-red;
+      font-size: $base-font;
+    }
+  }
+}
+
+.buttonContainer {
+  button {
+    height: 35px;
+    width: 120px;
+    border-radius: 3px;
+    @include main-border($width: 2px, $color: $sec-green);
+    cursor: pointer;
+    margin-right: $desk-sm;
+    background-color: $sec-green;
+    color: $main-black;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $sec-green-400;
+    }
+
+    &:nth-child(2) {
+      background-color: transparent;
+      border-color: transparent;
+
+      &:hover {
+        background-color: $sec-green-50;
+      }
+    }
+  }
+}
+
+.serverMsg {
+  text-align: center;
+  font-size: $sm-font !important;
+  padding: $desk-base;
+  font-weight: 600 !important;
+  color: $main-red !important;
+}
+
+@include tablet {
+  .modalCenter {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,309 @@
+@import "./variables";
+@import "./mixins";
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height: --webkit-fill-available;
+  font-family: var(--font-nunito);
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
+body {
+  background-color: $main-black-10;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-roboto);
+  line-height: 120%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  letter-spacing: 0.05em;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.75rem;
+}
+h3 {
+  font-size: 1.5625rem;
+}
+h4 {
+  font-size: 1.375rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-family: var(--font-nunito);
+  letter-spacing: 0.05em;
+  line-height: 140%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.boxTitle {
+  color: $sec-green-700;
+  text-transform: capitalize;
+}
+
+.countCardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-column-gap: $desk-lg;
+  grid-row-gap: $desk-lg;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include flex-just-center;
+  background-color: rgba($color: $main-black, $alpha: 0.5);
+  box-shadow: $card-shadow;
+  z-index: 20;
+}
+
+.extra {
+  margin: $desk-div 0;
+}
+
+.notFoundText {
+  text-align: center;
+  color: $main-black-400;
+  font-weight: 500;
+}
+
+/////////////////////////////
+/// Pagination
+/////////////////////////////
+
+.paginationContainer {
+  width: max-content;
+  height: 45px;
+  margin: 80px auto;
+  overflow: hidden;
+  border-radius: 5px;
+  list-style: none;
+  @include flex-just-center;
+  font-size: $lg-font;
+  font-weight: 500;
+  font-family: var(--font-nunito);
+  user-select: none;
+  background-color: #fff;
+  box-shadow: $card-shadow;
+
+  .pageNum {
+    padding: $desk-sm $desk-base;
+    @include main-border($side: "bottom", $width: 4px, $color: transparent);
+    cursor: pointer;
+
+    &:hover {
+      border-color: $sec-green;
+    }
+  }
+
+  .prevNum {
+    padding: $desk-base;
+    cursor: pointer;
+    color: $pri-green;
+  }
+
+  .nextNum {
+    padding: $desk-base;
+    cursor: pointer;
+    color: $pri-green;
+  }
+
+  .pageActive {
+    color: $pri-green;
+    border-color: $pri-green;
+
+    &:hover {
+      border-color: $pri-green;
+    }
+  }
+
+  .pageDisable {
+    color: $main-black-40 !important;
+  }
+}
+
+.divTitle {
+  color: $pri-green;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: $desk-div;
+}
+
+.repu {
+  @include flex-center;
+  color: $main-gold;
+
+  p {
+    font-size: $base-font;
+    color: $pri-green;
+    font-weight: 600;
+    padding: 0 !important;
+    padding-top: $desk-xsm !important;
+    margin-left: $desk-xsm;
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/////////////////////////////
+/// React datepicker customization
+/////////////////////////////
+
+.react-datepicker-popper {
+  width: 100%;
+}
+
+.react-datepicker-popper[data-placement^="top"] {
+  padding-bottom: 0 !important;
+}
+
+.react-datepicker {
+  width: 100%;
+  font-family: var(--font-nunito);
+  font-size: $base-font !important;
+  background-color: $main-black-10 !important;
+  border-color: $pri-green !important;
+  border-width: 2px !important;
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker__month-container {
+  width: 100%;
+}
+
+.react-datepicker__header {
+  color: #fff !important;
+  border-radius: 0px !important;
+  background-color: $pri-green !important;
+}
+
+.CalenderInput_calendarHeader__Hf3nc {
+  background-color: $pri-green !important;
+  padding: 0 !important;
+}
+
+.react-datepicker__day-names {
+  background-color: $pri-green !important;
+  .react-datepicker__day-name {
+    color: #fff !important;
+  }
+}
+
+.react-datepicker__day--selected {
+  background-color: $sec-green !important;
+  color: $main-black !important;
+  font-weight: 600 !important;
+}
+
+.react-datepicker__day {
+  font-size: $base-font !important;
+  font-weight: 500 !important;
+
+  &:hover {
+    background-color: $sec-green-50 !important;
+  }
+}
+
+@include tablet {
+  .react-datepicker__week {
+    padding: $desk-xsm 0;
+  }
+  .react-datepicker__day {
+    margin: $desk-xsm !important;
+  }
+}
+
+/////////////////////////////
+/// media screens
+/////////////////////////////
+
+@include tablet {
+  .divTitle {
+    text-align: center;
+  }
+
+  .paginationContainer {
+    .pageNum {
+      padding: 10px 12px !important;
+    }
+
+    .prevNum {
+      padding-right: $desk-base;
+      color: $pri-green;
+    }
+
+    .nextNum {
+      padding-left: $desk-base !important;
+    }
+  }
+}
+
+@include smMobile {
+  .paginationContainer {
+    font-size: $base-font !important;
+
+    .pageNum {
+      padding: 9px $desk-sm !important;
+    }
+
+    .prevNum {
+      padding-right: $desk-base;
+    }
+
+    .nextNum {
+      padding-left: $desk-base !important;
+    }
+  }
+}
