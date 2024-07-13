@@ -3,6 +3,7 @@ import MainModal from "@/components/MainModal";
 import { AppProvider } from "@/context";
 import "@/styles/globals.scss";
 import { Nunito, Roboto } from "next/font/google";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const nunito = Nunito({
@@ -22,16 +23,18 @@ const roboto = Roboto({
 export default function App({ Component, pageProps }) {
   const [needLayout, setNeedLayout] = useState();
 
+  const router = useRouter();
+
   useEffect(() => {
     setNeedLayout(() => {
-      switch (Component.name) {
-        case "Login":
+      switch (router.pathname) {
+        case "/login":
           return false;
         default:
           return true;
       }
     });
-  }, [Component.name]);
+  }, [router.pathname]);
 
   return (
     <AppProvider>

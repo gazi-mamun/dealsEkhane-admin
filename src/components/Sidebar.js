@@ -27,10 +27,10 @@ const Sidebar = ({ setIsSidebarOpen }) => {
   };
 
   const handleLogout = async () => {
-    localStorage.removeItem("user");
-    setUser(null);
     try {
       await axios.get("/users/logout");
+      localStorage.removeItem("user");
+      setUser(null);
       router.push("/");
     } catch (error) {
       console.log(error.response);

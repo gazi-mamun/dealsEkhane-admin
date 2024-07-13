@@ -1,7 +1,8 @@
 import { jwtVerify } from "jose";
 import { NextResponse } from "next/server";
 
-const secret = process.env.JWT_SECRET;
+const secret = process.env.NEXT_PUBLIC_JWT_SECRET;
+const appUrl = process.env.NEXT_PUBLIC_APP_URL;
 
 export default async function middleware(req) {
   const jwt = req.cookies.get("jwt")?.value;
@@ -25,7 +26,7 @@ export default async function middleware(req) {
       try {
         await verify(jwt, secret);
 
-        return NextResponse.redirect("http://localhost:3001/");
+        return NextResponse.redirect(`${appUrl}`);
       } catch (e) {
         return NextResponse.next();
       }
@@ -42,13 +43,13 @@ export async function verify(token, secret) {
 
 async function checkJwt(token, secret, NextResponse) {
   if (token === undefined) {
-    return NextResponse.redirect("http://localhost:3001/login");
+    return NextResponse.redirect(`${appUrl}/login`);
   }
 
   try {
-    const payload = await verify(token, secret);
+    await verify(token, secret);
     return NextResponse.next();
   } catch (e) {
-    return NextResponse.redirect("http://localhost:3001/login");
+    return NextResponse.redirect(`${appUrl}/login`);
   }
 }
