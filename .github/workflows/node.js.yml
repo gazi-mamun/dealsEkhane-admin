@@ -17,9 +17,11 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     env:
-      JWT_SECRET: ${{secrets.JWT_SECRET}}
+      NEXT_PUBLIC_JWT_SECRET: ${{secrets.NEXT_PUBLIC_JWT_SECRET}}
       NEXT_PUBLIC_API_URL: ${{secrets.NEXT_PUBLIC_API_URL}}
       API_URL: ${{secrets.API_URL}}
+      NEXT_PUBLIC_APP_URL: ${{secrets.NEXT_PUBLIC_APP_URL}}
+      NEXT_PUBLIC_API_MAIN_URL: ${{secrets.NEXT_PUBLIC_API_MAIN_URL}}
 
     steps:
       - uses: actions/checkout@v3
