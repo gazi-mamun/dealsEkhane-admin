@@ -28,7 +28,7 @@ const AppProvider = ({ children }) => {
     if (user !== null || undefined) {
       localStorage.setItem("user", JSON.stringify(user));
       checkUnreadNotifications(setHasUnread);
-      setSocket(io("http://localhost:5000"));
+      setSocket(io(process.env.NEXT_PUBLIC_API_MAIN_URL));
       setTimeout(() => {
         localStorage.removeItem("user");
       }, 86400000);

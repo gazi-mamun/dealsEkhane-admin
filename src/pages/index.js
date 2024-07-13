@@ -24,6 +24,7 @@ export default function Home() {
         cancelToken: canceltoken.token,
       })
       .then((res) => {
+        console.log(res.data.data);
         setDashboardData(res.data.data);
       })
       .catch((err) => {
@@ -66,7 +67,7 @@ export default function Home() {
           />
           <CountCard
             title="featured offers(today)"
-            count="7"
+            count={dashboardData?.featuredOffersToday}
             linkText="See all offers"
             icon={<MdOutlineFeaturedVideo size={24} />}
           />
@@ -83,7 +84,7 @@ export default function Home() {
             icon={<GiMoneyStack size={24} />}
           />
         </div>
-        {isClient && (
+        {/* {isClient && (
           <div className={"earningChartContainer"}>
             <EarningChart title="Income (Last 7 days)" data={data1} x="day" />
             <EarningChart
@@ -92,7 +93,7 @@ export default function Home() {
               x="month"
             />
           </div>
-        )}
+        )} */}
       </div>
     </>
   );
